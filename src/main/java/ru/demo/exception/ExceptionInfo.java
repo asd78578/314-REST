@@ -1,4 +1,4 @@
-package ru.demo.Exception;
+package ru.demo.exception;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

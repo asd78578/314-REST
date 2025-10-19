@@ -1,4 +1,4 @@
-package ru.demo.Exception;
+package ru.demo.exception;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {

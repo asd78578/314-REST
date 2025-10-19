@@ -6,7 +6,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.demo.Exception.UserUsernameExistException;
+import ru.demo.exception.UserUsernameExistException;
 import ru.demo.util.ApiResponse;
 
 import javax.persistence.EntityNotFoundException;

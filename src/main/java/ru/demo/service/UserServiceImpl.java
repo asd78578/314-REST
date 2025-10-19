@@ -1,6 +1,6 @@
 package ru.demo.service;
 
-import ru.demo.Exception.UserUsernameExistException;
+import ru.demo.exception.UserUsernameExistException;
 import ru.demo.repository.RoleRepository;
 import ru.demo.repository.UserRepository;
 import ru.demo.model.Role;
