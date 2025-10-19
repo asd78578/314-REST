@@ -28,13 +28,11 @@ public class RestApiController {
         this.userService = userService;
     }
 
-    // получение всех пользователей
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
-    // создание пользователя
     @PostMapping("/users")
     public ResponseEntity<ApiResponse> createUser(@Valid @RequestBody User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -45,21 +43,18 @@ public class RestApiController {
         return ResponseEntity.ok(new ApiResponse("User created successfully"));
     }
 
-    //удаление пользователя
     @DeleteMapping("/users/{id}")
     public ResponseEntity<ExceptionInfo> pageDelete(@PathVariable("id") long id) {
         userService.deleteById(id);
         return new ResponseEntity<>(new ExceptionInfo("User deleted"), HttpStatus.OK);
     }
 
-    //получение пользователя по ID
     @GetMapping("users/{id}")
     public ResponseEntity<User> getUser(@PathVariable("id") long id) {
         User user = userService.getById(id);
         return ResponseEntity.ok(user);
     }
 
-    //получение текущего пользователя
     @GetMapping("/user")
     public ResponseEntity<User> getUserByUsername(Principal principal) {
         User user = userService.findByUsername(principal.getName());
@@ -69,7 +64,6 @@ public class RestApiController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    //обновление пользователя
     @PutMapping("/users/{id}")
     public ResponseEntity<ExceptionInfo> pageEdit(@PathVariable("id") long id,
                                                   @Valid @RequestBody User user,
@@ -90,7 +84,6 @@ public class RestApiController {
 
     }
 
-    //Преобразует ошибки валидации в строку, объединяя сообщения через точку с запятой
     private String getErrorsFromBindingResult(BindingResult bindingResult) {
         return bindingResult.getFieldErrors()
                 .stream()
