@@ -1,6 +1,6 @@
-package ru.alexeykedr.service;
+package ru.demo.service;
 
-import ru.alexeykedr.model.User;
+import ru.demo.model.User;
 import java.util.List;
 
 public interface UserService {

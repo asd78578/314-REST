@@ -1,6 +1,6 @@
-package ru.alexeykedr.service;
+package ru.demo.service;
 
-import ru.alexeykedr.model.Role;
+import ru.demo.model.Role;
 import java.util.List;
 import java.util.Set;
 

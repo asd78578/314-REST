@@ -1,4 +1,4 @@
-package ru.alexeykedr.Exception;
+package ru.demo.Exception;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -19,4 +19,5 @@ public class ExceptionInfo {
     public String getInfo() {
         return info;
     }
+
 }

@@ -1,4 +1,4 @@
-package ru.alexeykedr.security;
+package ru.demo.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;

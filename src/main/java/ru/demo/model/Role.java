@@ -1,4 +1,4 @@
-package ru.alexeykedr.model;
+package ru.demo.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
@@ -38,6 +38,14 @@ public class Role implements GrantedAuthority {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", role='" + role + '\'' +
+                '}';
     }
 
     @Override

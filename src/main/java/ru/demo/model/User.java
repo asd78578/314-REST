@@ -1,4 +1,4 @@
-package ru.alexeykedr.model;
+package ru.demo.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,14 +14,19 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Pattern(regexp = "[A-Za-zа-яёА-ЯЁ]{2,15}", message = "Name should be between 2 and 15 characters without space")
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
+    @Column(name = "name")
     private String name;
 
-    @Pattern(regexp = "[A-Za-zа-яёА-ЯЁ]{2,15}", message = "Surname should be between 2 and 15 characters without space")
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
+    @Column(name = "surname")
     private String surname;
 
     @Min(value = 0, message = "Age should be >= 0 & < 128")
     @Max(value = 127, message = "Age should be >= 0 & < 128")
+    @Column(name = "age")
     private byte age;
 
     @Pattern(regexp = "([A-z0-9_.-]+)@([A-z0-9_.-]+).([A-z]{2,8})", message = "Enter correct email")
@@ -30,11 +35,12 @@ public class User implements UserDetails {
     @NotEmpty(message = "Username cannot be empty")
     @Pattern(regexp = "[A-Za-z]{2,15}", message = "Name should be between 2 and 15 latin characters without space")
     @Size(min = 2, max = 15, message = "Username should be between 2 and 15 latin characters")
-    @Column(unique = true)
+    @Column(unique = true, name = "username")
     private String username;
 
     @NotEmpty(message = "Password cannot be empty")
     @Size(min = 4, message = "Password should be greater then 4 symbols")
+    @Column(name = "password")
     private String password;
 
     @NotEmpty(message = "The role cannot be omitted")
@@ -112,6 +118,10 @@ public class User implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+
+    //-----------------------Spring Security's-----------------------//
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

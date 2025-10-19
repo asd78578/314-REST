@@ -76,3 +76,4 @@ async function deleteUser(modal, id) {
         }
     })
 }
+

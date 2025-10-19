@@ -45,3 +45,4 @@ async function infoUser() {
         });
     info.innerHTML = temp;
 }
+

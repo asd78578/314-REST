@@ -1,6 +1,7 @@
-package ru.alexeykedr.security;
+package ru.demo.security;
 
-import ru.alexeykedr.DAO.UserDAO;
+import ru.demo.model.User;
+import ru.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,19 +13,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    UserDAO userDAO;
+    UserRepository userRepository;
 
     @Autowired
-    public UserDetailsServiceImpl(UserDAO userDAO) {
-        this.userDAO = userDAO;
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        try {
-            return userDAO.findByUsername(s);
-        } catch (UsernameNotFoundException u) {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
             throw new UsernameNotFoundException("user not found");
         }
+        return user;
     }
 }

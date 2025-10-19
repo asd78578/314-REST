@@ -1,4 +1,4 @@
-package ru.alexeykedr.controller;
+package ru.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
